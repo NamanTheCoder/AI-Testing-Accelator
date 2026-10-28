@@ -1,0 +1,72 @@
+test_id,category,root_cause,note
+com.northwind.qa.api.payments.TransferApiTest.sameDayTransfer,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.TransferApiTest.futureDatedTransfer,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.TransferApiTest.transferToSavings,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.TransferApiTest.cancelPendingTransfer,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.PayeeApiTest.addDomesticPayee,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.PayeeApiTest.deletePayee,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.PayeeApiTest.listPayees,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.PayeeApiTest.updatePayeeNickname,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudUsd,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudEur,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.api.trading.FxQuoteApiTest.quoteExpiresAfter30s,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.api.trading.FxDealApiTest.bookSpotDeal,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.api.trading.FxDealApiTest.bookForwardDeal,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.ui.LoginUiTest.loginWithMfa,ENVIRONMENT,E3,Selenium Grid node ran out of capacity; browser sessions could not be created.
+com.northwind.qa.ui.DashboardUiTest.showsAccountTiles,ENVIRONMENT,E3,Selenium Grid node ran out of capacity; browser sessions could not be created.
+com.northwind.qa.ui.StatementsUiTest.downloadPdfStatement,ENVIRONMENT,E3,Selenium Grid node ran out of capacity; browser sessions could not be created.
+com.northwind.qa.ui.StatementsUiTest.filterByDateRange,ENVIRONMENT,E3,Selenium Grid node ran out of capacity; browser sessions could not be created.
+tests.statements.test_statements.test_monthly_statement_totals,ENVIRONMENT,E4,Test-data pool exhausted (all ACTIVE accounts consumed by earlier runs).
+tests.statements.test_statements.test_statement_csv_export_headers,ENVIRONMENT,E4,Test-data pool exhausted (all ACTIVE accounts consumed by earlier runs).
+tests.statements.test_statements.test_interest_line_present,ENVIRONMENT,E4,Test-data pool exhausted (all ACTIVE accounts consumed by earlier runs).
+com.northwind.qa.api.payments.BpayApiTest.payBillerByCode,ENVIRONMENT,E5,OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug.
+com.northwind.qa.api.payments.BpayApiTest.scheduleBpay,ENVIRONMENT,E5,OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug.
+com.northwind.qa.api.payments.DirectDebitApiTest.createMandate,ENVIRONMENT,E5,OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug.
+com.northwind.payments.SanctionsScreeningComponentTest.screensBeneficiaryName,ENVIRONMENT,E6,TLS certificate on the sanctions-screening stub expired.
+com.northwind.payments.SanctionsScreeningComponentTest.blocksListedEntity,ENVIRONMENT,E6,TLS certificate on the sanctions-screening stub expired.
+com.northwind.qa.api.trading.SettlementEventTest.publishesSettledEvent,ENVIRONMENT,E7,"Kafka broker in SIT unavailable, so settlement events never arrive and the test times out. The exception is a timeout; the cause is only visible in the log."
+com.northwind.qa.api.trading.SettlementEventTest.publishesFailedSettlementEvent,ENVIRONMENT,E7,"Kafka broker in SIT unavailable, so settlement events never arrive and the test times out. The exception is a timeout; the cause is only visible in the log."
+com.northwind.qa.api.payments.CardPaymentApiTest.authoriseCard,ENVIRONMENT,E8,"Card-gateway sandbox is intermittently overloaded (503). History flips, but the cause is the environment, not the test. Rules that look at history first call this FLAKY."
+com.northwind.qa.api.payments.CardPaymentApiTest.refundCard,ENVIRONMENT,E8,"Card-gateway sandbox is intermittently overloaded (503). History flips, but the cause is the environment, not the test. Rules that look at history first call this FLAKY."
+com.northwind.qa.ui.PaymentsUiTest.payNewPayee,TEST_BUG,T1,Intentional UI change (see context.json): submit button renamed/re-ided; locators not updated.
+com.northwind.qa.ui.PaymentsUiTest.payExistingPayee,TEST_BUG,T1,Intentional UI change (see context.json): submit button renamed/re-ided; locators not updated.
+com.northwind.qa.ui.PaymentsUiTest.payWithReference,TEST_BUG,T1,Intentional UI change (see context.json): submit button renamed/re-ided; locators not updated.
+com.northwind.qa.ui.InternationalPaymentsUiTest.payInEur,TEST_BUG,T1,Intentional UI change (see context.json): submit button renamed/re-ided; locators not updated.
+tests.statements.test_formatting.test_statement_balance_format,TEST_BUG,T2,"Currency display format intentionally changed (CR-1182, in context.json); test still expects old format. Looks like a product assertion failure without the change context."
+tests.statements.test_formatting.test_transaction_amount_format,TEST_BUG,T2,"Currency display format intentionally changed (CR-1182, in context.json); test still expects old format. Looks like a product assertion failure without the change context."
+com.northwind.qa.ui.TradeBlotterUiTest.emptyBlotterShowsMessage,TEST_BUG,T3,NPE inside a page object (null WebElement list when grid is empty) - test code defect.
+com.northwind.qa.ui.TradeBlotterUiTest.filterBySymbol,TEST_BUG,T3,NPE inside a page object (null WebElement list when grid is empty) - test code defect.
+com.northwind.qa.api.trading.OrderApiTest.placeLimitOrder,TEST_BUG,T4,Test-order dependency: a hard-coded order id is reused and the previous test does not clean up.
+tests.payments.test_transfers_api.test_transfer_limits,TEST_BUG,T5,Test helper call signature out of date after a helper refactor in the test repo.
+tests.payments.test_transfers_api.test_transfer_same_currency,TEST_BUG,T5,Test helper call signature out of date after a helper refactor in the test repo.
+com.northwind.qa.api.payments.AccountApiTest.getBalance,TEST_BUG,T6,API v2 intentionally renamed $.data.balance to $.data.availableBalance (context.json); test JSON path is stale.
+com.northwind.qa.api.payments.AccountApiTest.balanceAfterTransfer,TEST_BUG,T6,API v2 intentionally renamed $.data.balance to $.data.availableBalance (context.json); test JSON path is stale.
+com.northwind.qa.ui.TermDepositUiTest.openTermDeposit,TEST_BUG,T7,New sticky footer intentionally duplicates the Confirm button (context.json); the Playwright-style locator is now ambiguous. Test must be made specific.
+com.northwind.qa.ui.TermDepositUiTest.rolloverTermDeposit,TEST_BUG,T7,New sticky footer intentionally duplicates the Confirm button (context.json); the Playwright-style locator is now ambiguous. Test must be made specific.
+com.northwind.qa.api.payments.FeesApiTest.internationalTransferFee,PRODUCT_BUG,P1,International transfer fee calculated 10x too high.
+com.northwind.qa.api.trading.FxCrossRateApiTest.quoteEurJpy,PRODUCT_BUG,P2,Our FX quote service throws NPE for cross-currency pairs after the latest deploy (500).
+com.northwind.qa.api.trading.FxCrossRateApiTest.quoteGbpNzd,PRODUCT_BUG,P2,Our FX quote service throws NPE for cross-currency pairs after the latest deploy (500).
+com.northwind.qa.api.trading.FxCrossRateApiTest.quoteChfSgd,PRODUCT_BUG,P2,Our FX quote service throws NPE for cross-currency pairs after the latest deploy (500).
+com.northwind.payments.LimitServiceComponentTest.defaultLimitApplied,PRODUCT_BUG,P3,NPE in application code (daily-limit check) when customer has no limit override record.
+com.northwind.payments.LimitServiceComponentTest.limitResetsAtMidnight,PRODUCT_BUG,P3,NPE in application code (daily-limit check) when customer has no limit override record.
+com.northwind.payments.InterestAccrualComponentTest.monthlyAccrualRounding,PRODUCT_BUG,P4,Interest accrual rounding uses HALF_UP instead of the required banker's rounding (HALF_EVEN).
+com.northwind.qa.api.payments.ComplianceApiTest.rejectsSanctionedCountry,PRODUCT_BUG,P5,Business rule regression: transfer to a sanctioned-country beneficiary is accepted.
+com.northwind.qa.ui.TradeBlotterUiTest.loadsTodayTrades,PRODUCT_BUG,P6,"Real performance regression: trade query lost its index hint in the latest commit; page now takes ~41s. Surface symptom is a UI timeout, which rules call FLAKY."
+com.northwind.qa.ui.TradeBlotterUiTest.sortsByNotional,PRODUCT_BUG,P6,"Real performance regression: trade query lost its index hint in the latest commit; page now takes ~41s. Surface symptom is a UI timeout, which rules call FLAKY."
+tests.statements.test_exports.test_csv_contains_all_transactions,PRODUCT_BUG,P7,Off-by-one: statement CSV export drops the last transaction.
+com.northwind.qa.api.payments.IdempotencyApiTest.retryDoesNotDoubleDebit,PRODUCT_BUG,P8,Idempotency broken: retried payment with same Idempotency-Key debits twice.
+com.northwind.qa.api.payments.LimitsApiTest.getDailyLimit,PRODUCT_BUG,P9,Endpoint accidentally removed in latest deploy (no intentional change listed): 404.
+com.northwind.qa.api.payments.LimitsApiTest.updateDailyLimit,PRODUCT_BUG,P9,Endpoint accidentally removed in latest deploy (no intentional change listed): 404.
+com.northwind.qa.api.trading.FxRateApiTest.audUsdRateDirection,PRODUCT_BUG,P10,Cross rate inverted (returns USD/AUD instead of AUD/USD).
+com.northwind.payments.AuditTrailComponentTest.approvalIsAudited,PRODUCT_BUG,P11,Audit trail missing PAYMENT_APPROVED event (regulatory requirement).
+tests.statements.test_statement_fields.test_settlement_date_present,PRODUCT_BUG,P12,"Statements API stopped returning settlementDate (no intentional change). KeyError is raised in test code, so naive rules blame the test."
+tests.statements.test_statement_fields.test_settlement_after_posting,PRODUCT_BUG,P12,"Statements API stopped returning settlementDate (no intentional change). KeyError is raised in test code, so naive rules blame the test."
+com.northwind.qa.ui.TradeBlotterUiTest.amendTradeFromRow,FLAKY,F1,Blotter auto-refresh re-renders rows mid-interaction; intermittent StaleElementReference.
+com.northwind.qa.ui.TradeBlotterUiTest.cancelTradeFromRow,FLAKY,F1,Blotter auto-refresh re-renders rows mid-interaction; intermittent StaleElementReference.
+com.northwind.qa.ui.TradeBlotterUiTest.openTradeDetails,FLAKY,F1,Blotter auto-refresh re-renders rows mid-interaction; intermittent StaleElementReference.
+com.northwind.qa.ui.PayeeUiTest.addPayeeShowsToast,FLAKY,F2,Toast disappears after 3s; test sometimes looks too late.
+com.northwind.qa.ui.PayeeUiTest.deletePayeeShowsToast,FLAKY,F2,Toast disappears after 3s; test sometimes looks too late.
+com.northwind.qa.api.trading.TradeLifecycleTest.eventsInOrder,FLAKY,F3,Asserts on ordering of two async events that have no ordering guarantee.
+com.northwind.qa.ui.CardsUiTest.freezeCard,FLAKY,F4,Loading spinner overlay intermittently intercepts the click.
+com.northwind.qa.ui.CardsUiTest.unfreezeCard,FLAKY,F4,Loading spinner overlay intermittently intercepts the click.
+com.northwind.qa.ui.PortfolioUiTest.rendersPerformanceChart,FLAKY,F5,Chart render sometimes takes just over the 10s wait on a cold cache.

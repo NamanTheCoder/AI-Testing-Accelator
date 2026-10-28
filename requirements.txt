@@ -1,0 +1,3 @@
+anthropic>=0.40
+groq>=0.11
+pytest>=8

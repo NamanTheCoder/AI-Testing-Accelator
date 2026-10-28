@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <testsuite name="api-payments" tests="60" failures="20">
+    <testcase classname="com.northwind.qa.api.payments.TransferApiTest" name="sameDayTransfer" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.TransferApiTest.sameDayTransfer(TransferApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.TransferApiTest" name="futureDatedTransfer" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.TransferApiTest.futureDatedTransfer(TransferApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.TransferApiTest" name="transferToSavings" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.TransferApiTest.transferToSavings(TransferApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.TransferApiTest" name="cancelPendingTransfer" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.TransferApiTest.cancelPendingTransfer(TransferApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.PayeeApiTest" name="addDomesticPayee" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.PayeeApiTest.addDomesticPayee(PayeeApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.PayeeApiTest" name="deletePayee" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.PayeeApiTest.deletePayee(PayeeApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.PayeeApiTest" name="listPayees" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.PayeeApiTest.listPayees(PayeeApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.PayeeApiTest" name="updatePayeeNickname" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.PayeeApiTest.updatePayeeNickname(PayeeApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.BpayApiTest" name="payBillerByCode" time="0.600">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;401&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;401&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.core.AuthHelper.fetchToken(AuthHelper.java:37)
+	at com.northwind.qa.api.payments.BpayApiTest.payBillerByCode(BpayApiTest.java:29)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>POST https://idp-sit.northwind.internal/oauth2/token grant_type=client_credentials client_id=qa-automation-sit client_secret=9f8e7d6c5b4a
+HTTP/1.1 401 {"error":"invalid_client","error_description":"Client secret has expired (expired 2026-10-27T00:00:00Z)"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.BpayApiTest" name="scheduleBpay" time="0.600">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;401&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;401&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.core.AuthHelper.fetchToken(AuthHelper.java:37)
+	at com.northwind.qa.api.payments.BpayApiTest.scheduleBpay(BpayApiTest.java:29)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>POST https://idp-sit.northwind.internal/oauth2/token grant_type=client_credentials client_id=qa-automation-sit client_secret=9f8e7d6c5b4a
+HTTP/1.1 401 {"error":"invalid_client","error_description":"Client secret has expired (expired 2026-10-27T00:00:00Z)"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.DirectDebitApiTest" name="createMandate" time="0.600">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;401&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;401&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.core.AuthHelper.fetchToken(AuthHelper.java:37)
+	at com.northwind.qa.api.payments.DirectDebitApiTest.createMandate(DirectDebitApiTest.java:29)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>POST https://idp-sit.northwind.internal/oauth2/token grant_type=client_credentials client_id=qa-automation-sit client_secret=9f8e7d6c5b4a
+HTTP/1.1 401 {"error":"invalid_client","error_description":"Client secret has expired (expired 2026-10-27T00:00:00Z)"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.CardPaymentApiTest" name="authoriseCard" time="2.100">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.CardPaymentApiTest.authoriseCard(CardPaymentApiTest.java:33)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>POST /api/v1/cards/authorise pan=4111 1111 1111 1111 expiry=12/28 amount=10.00
+card-gateway-sandbox: 503 Service Unavailable - Retry-After: 30 (sandbox capacity exceeded)</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.CardPaymentApiTest" name="refundCard" time="2.100">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.CardPaymentApiTest.refundCard(CardPaymentApiTest.java:33)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>POST /api/v1/cards/authorise pan=4111 1111 1111 1111 expiry=12/28 amount=10.00
+card-gateway-sandbox: 503 Service Unavailable - Retry-After: 30 (sandbox capacity exceeded)</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.AccountApiTest" name="getBalance" time="0.300">
+      <failure message="No results for path: $['data']['balance']" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: No results for path: $['data']['balance']
+	at io.restassured.path.json.JsonPath.getJsonObject(JsonPath.java:1008)
+	at com.northwind.qa.core.Json.read(Json.java:19)
+	at com.northwind.qa.api.payments.AccountApiTest.getBalance(AccountApiTest.java:27)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>GET /api/v2/accounts/acct-7f3a/balance -&gt; 200 {"data":{"availableBalance":1520.40,"currentBalance":1600.00,"currency":"AUD"}}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.AccountApiTest" name="balanceAfterTransfer" time="0.300">
+      <failure message="No results for path: $['data']['balance']" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: No results for path: $['data']['balance']
+	at io.restassured.path.json.JsonPath.getJsonObject(JsonPath.java:1008)
+	at com.northwind.qa.core.Json.read(Json.java:19)
+	at com.northwind.qa.api.payments.AccountApiTest.balanceAfterTransfer(AccountApiTest.java:27)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>GET /api/v2/accounts/acct-7f3a/balance -&gt; 200 {"data":{"availableBalance":1520.40,"currentBalance":1600.00,"currency":"AUD"}}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.FeesApiTest" name="internationalTransferFee" time="0.400">
+      <failure message="Fee for USD 1000 international transfer ==&gt; expected: &lt;2.50&gt; but was: &lt;25.00&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Fee for USD 1000 international transfer ==&gt; expected: &lt;2.50&gt; but was: &lt;25.00&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at com.northwind.qa.api.payments.FeesApiTest.internationalTransferFee(FeesApiTest.java:62)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>GET /api/v1/fees/quote?type=INTL&amp;amount=1000&amp;ccy=USD -&gt; 200 {"fee":25.00,"feeSchedule":"FS-2026-10"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.ComplianceApiTest" name="rejectsSanctionedCountry" time="0.600">
+      <failure message="1 expectation failed. Expected status code &lt;422&gt; but was &lt;201&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;422&gt; but was &lt;201&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.ComplianceApiTest.rejectsSanctionedCountry(ComplianceApiTest.java:39)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>POST /api/v1/payments/international beneficiaryCountry=KP amount=5000 -&gt; 201 {"paymentId":"pay-31c9","status":"ACCEPTED","screening":"SKIPPED"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.IdempotencyApiTest" name="retryDoesNotDoubleDebit" time="1.100">
+      <failure message="debits for Idempotency-Key 6f1c... ==&gt; expected: &lt;1&gt; but was: &lt;2&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: debits for Idempotency-Key 6f1c... ==&gt; expected: &lt;1&gt; but was: &lt;2&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at com.northwind.qa.api.payments.IdempotencyApiTest.retryDoesNotDoubleDebit(IdempotencyApiTest.java:48)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>POST /api/v1/payments (attempt 1) -&gt; 201 pay-77a0; POST /api/v1/payments (attempt 2, same key) -&gt; 201 pay-77a1</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.LimitsApiTest" name="getDailyLimit" time="0.300">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;404&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;404&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.LimitsApiTest.getDailyLimit(LimitsApiTest.java:24)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>GET /api/v1/accounts/acct-7f3a/limits -&gt; 404 {"error":"No route"}; /api/v1/accounts/acct-7f3a -&gt; 200</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.LimitsApiTest" name="updateDailyLimit" time="0.300">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;404&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;404&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.LimitsApiTest.updateDailyLimit(LimitsApiTest.java:24)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>GET /api/v1/accounts/acct-7f3a/limits -&gt; 404 {"error":"No route"}; /api/v1/accounts/acct-7f3a -&gt; 200</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.Smoke0" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke1" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke2" name="passes" time="0.1" />
+  </testsuite>
+</testsuites>
