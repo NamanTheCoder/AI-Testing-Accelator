@@ -1,0 +1,94 @@
+{
+  "stats": {
+    "failures": 5,
+    "clusters": 3,
+    "engine": "groq",
+    "elapsed_s": 6.19,
+    "needs_review": 0,
+    "by_category": {
+      "PRODUCT_BUG": 0,
+      "TEST_BUG": 2,
+      "ENVIRONMENT": 3,
+      "FLAKY": 0
+    },
+    "usage": {
+      "input_tokens": 5510,
+      "output_tokens": 1417,
+      "calls": 3,
+      "cache_hits": 0
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "C-b609a6ef",
+      "signature": "HTTP 201->503 | ERROR payments-svc: org.postgresql.util.PSQLException: Connection to <IP>:<N> refused. Check that the hostname and port ",
+      "tests": [
+        "com.northwind.qa.api.payments.TransferApiTest.sameDayTransfer",
+        "com.northwind.qa.api.payments.TransferApiTest.futureDatedTransfer",
+        "com.northwind.qa.api.payments.TransferApiTest.transferToSavings"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.95,
+        "reason": "All three tests were passing consistently (10/10) and now fail identically because the payments service cannot reach its PostgreSQL database: PSQLException \"Connection to <IP>:5432 refused\" followed by HTTP 503 {\"error\":\"DB_UNAVAILABLE\"}. This is a DB connectivity/availability issue in the SIT environment, not a product or test defect.",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "ERROR payments-svc: org.postgresql.util.PSQLException: Connection to <IP>:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://<USER>:<SECRET>@<IP>:5432/payments",
+          "WARN  HTTP 503 Service Unavailable {\"error\":\"DB_UNAVAILABLE\"}",
+          "history (oldest->newest, this run excluded): PPPPPPPPPP"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "SIT payments DB connection refused causing 503 on all transfer API tests",
+        "jira_description": "## Summary\nAll `TransferApiTest` tests fail with HTTP 503 because the payments service cannot connect to its PostgreSQL database in SIT.\n\n## Observed\n- `POST /api/v1/payments/transfers` returns **503 Service Unavailable** with body `{\"error\":\"DB_UNAVAILABLE\"}`.\n- payments-svc log: `org.postgresql.util.PSQLException: Connection to <IP>:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://<USER>:<SECRET>@<IP>:",
+        "engine": "groq:qwen/qwen3.8-27b"
+      }
+    },
+    {
+      "cluster_id": "C-1840080b",
+      "signature": "AssertionError | assert 'A$<N>,<N>' == 'AUD <N>,<N>' | tests.statements.test_formatting.test_statement_balance_format",
+      "tests": [
+        "tests.statements.test_formatting.test_statement_balance_format"
+      ],
+      "verdict": {
+        "category": "TEST_BUG",
+        "confidence": 0.95,
+        "reason": "The test asserts the old 'AUD ' prefix, but recent change CR-1182 intentionally changed currency display from 'AUD ' prefix to 'A$'. The app now correctly returns 'A$1,000.00' (HTTP 200, no error), so the application behavior is correct and the test's expected value is outdated. History shows 10 consecutive passes before this run, consistent with a test that broke only after the intentional change. (Alternative considered: PRODUCT_BUG.)",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "CR-1182 Display currency amounts as A$ instead of 'AUD ' prefix on statements - intentional",
+          "assert 'A$1,000.00' == 'AUD 1,000.00'",
+          "assert row['display_amount'] == 'AUD 1,000.00'",
+          "GET /api/v2/statements/latest -> 200 (fields: display_amount, currency, posted_at)",
+          "history (oldest->newest, this run excluded): PPPPPPPPPP"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "test_statement_balance_format expects old 'AUD ' prefix after CR-1182 changed to 'A$'",
+        "jira_description": "## Summary\n`tests.statements.test_formatting.test_statement_balance_format` fails because it still asserts the legacy currency format `'AUD 1,000.00'`, while the application now returns `'A$1,000.00'` per intentional change **CR-1182** (\"Display currency amounts as A$ instead of 'AUD ' prefix on statements\").\n\n## Observed\n- API `GET /api/v2/statements/latest` returns HTTP 200 with `display_amount = 'A$1,000.00'`.\n- Test assertion: `assert row['display_amount'] == 'AUD 1,000.00'` → `Assertion",
+        "engine": "groq:qwen/qwen3.8-27b"
+      }
+    },
+    {
+      "cluster_id": "C-e90ab83b",
+      "signature": "AssertionError | assert 'A$<N>,<N>' == 'AUD <N>,<N>' | tests.statements.test_formatting.test_transaction_amount_format",
+      "tests": [
+        "tests.statements.test_formatting.test_transaction_amount_format"
+      ],
+      "verdict": {
+        "category": "TEST_BUG",
+        "confidence": 0.95,
+        "reason": "The test hardcodes the old 'AUD ' prefix, but recent change CR-1182 intentionally changed currency display from 'AUD ' prefix to 'A$'. The app is returning the new intended format 'A$1,000.00'; the test's expected value is outdated. History is all-pass (PPPPPPPPPP) up to this run, consistent with a test that was correct before the intentional change and now fails on every run. (Alternative considered: PRODUCT_BUG.)",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "assert 'A$1,000.00' == 'AUD 1,000.00'",
+          "CR-1182 Display currency amounts as A$ instead of 'AUD ' prefix on statements - intentional",
+          "history (oldest->newest, this run excluded): PPPPPPPPPP",
+          "GET /api/v2/statements/latest -> 200 (fields: display_amount, currency, posted_at)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "Update test_transaction_amount_format expected value to new A$ format (CR-1182)",
+        "jira_description": "## Summary\n`tests.statements.test_formatting.test_transaction_amount_format` fails because it still asserts the old currency display format.\n\n## Observed\n- API returns `display_amount = 'A$1,000.00'` (HTTP 200 from `/api/v2/statements/latest`).\n- Test asserts `row['display_amount'] == 'AUD 1,000.00'` → AssertionError.\n\n## Expected\nPer intentional change **CR-1182** (\"Display currency amounts as A$ instead of 'AUD ' prefix on statements\"), the application now correctly returns the `A$` prefix",
+        "engine": "groq:qwen/qwen3.8-27b"
+      }
+    }
+  ]
+}

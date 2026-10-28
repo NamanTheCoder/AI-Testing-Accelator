@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <testsuite name="api-trading" tests="48" failures="8">
+    <testcase classname="com.northwind.qa.api.trading.FxQuoteApiTest" name="quoteAudUsd" time="3.400">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;502&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;502&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudUsd(FxQuoteApiTest.java:41)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:20:44Z INFO  GET /api/v1/fx/quote?pair=AUDUSD
+2026-10-28T01:20:45Z ERROR fx-gateway: upstream rates.partner-sandbox.example.net responded 503 Service Unavailable (attempt 3/3)
+2026-10-28T01:20:45Z WARN  returning 502 Bad Gateway to caller</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.trading.FxQuoteApiTest" name="quoteAudEur" time="3.400">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;502&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;502&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudEur(FxQuoteApiTest.java:41)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:20:44Z INFO  GET /api/v1/fx/quote?pair=AUDUSD
+2026-10-28T01:20:45Z ERROR fx-gateway: upstream rates.partner-sandbox.example.net responded 503 Service Unavailable (attempt 3/3)
+2026-10-28T01:20:45Z WARN  returning 502 Bad Gateway to caller</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.trading.FxQuoteApiTest" name="quoteExpiresAfter30s" time="3.400">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;502&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;502&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.trading.FxQuoteApiTest.quoteExpiresAfter30s(FxQuoteApiTest.java:41)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:20:44Z INFO  GET /api/v1/fx/quote?pair=AUDUSD
+2026-10-28T01:20:45Z ERROR fx-gateway: upstream rates.partner-sandbox.example.net responded 503 Service Unavailable (attempt 3/3)
+2026-10-28T01:20:45Z WARN  returning 502 Bad Gateway to caller</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.trading.FxDealApiTest" name="bookSpotDeal" time="3.400">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;502&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;502&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.trading.FxDealApiTest.bookSpotDeal(FxDealApiTest.java:41)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:20:44Z INFO  GET /api/v1/fx/quote?pair=AUDUSD
+2026-10-28T01:20:45Z ERROR fx-gateway: upstream rates.partner-sandbox.example.net responded 503 Service Unavailable (attempt 3/3)
+2026-10-28T01:20:45Z WARN  returning 502 Bad Gateway to caller</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.trading.FxDealApiTest" name="bookForwardDeal" time="3.400">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;502&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;502&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.trading.FxDealApiTest.bookForwardDeal(FxDealApiTest.java:41)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:20:44Z INFO  GET /api/v1/fx/quote?pair=AUDUSD
+2026-10-28T01:20:45Z ERROR fx-gateway: upstream rates.partner-sandbox.example.net responded 503 Service Unavailable (attempt 3/3)
+2026-10-28T01:20:45Z WARN  returning 502 Bad Gateway to caller</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.trading.FxCrossRateApiTest" name="quoteEurJpy" time="0.700">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;500&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;500&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.trading.FxCrossRateApiTest.quoteEurJpy(FxCrossRateApiTest.java:30)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>trading-svc ERROR [req-9a1f] Unhandled exception on GET /api/v1/fx/quote
+java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.divide(java.math.BigDecimal, java.math.MathContext)" because "usdLeg" is null
+	at com.northwind.trading.fx.CrossRateCalculator.cross(CrossRateCalculator.java:77)
+	at com.northwind.trading.fx.FxQuoteService.quote(FxQuoteService.java:41)</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.trading.FxCrossRateApiTest" name="quoteGbpNzd" time="0.700">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;500&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;500&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.trading.FxCrossRateApiTest.quoteGbpNzd(FxCrossRateApiTest.java:30)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>trading-svc ERROR [req-9a1f] Unhandled exception on GET /api/v1/fx/quote
+java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.divide(java.math.BigDecimal, java.math.MathContext)" because "usdLeg" is null
+	at com.northwind.trading.fx.CrossRateCalculator.cross(CrossRateCalculator.java:77)
+	at com.northwind.trading.fx.FxQuoteService.quote(FxQuoteService.java:41)</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.trading.FxCrossRateApiTest" name="quoteChfSgd" time="0.700">
+      <failure message="1 expectation failed. Expected status code &lt;200&gt; but was &lt;500&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;500&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.trading.FxCrossRateApiTest.quoteChfSgd(FxCrossRateApiTest.java:30)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>trading-svc ERROR [req-9a1f] Unhandled exception on GET /api/v1/fx/quote
+java.lang.NullPointerException: Cannot invoke "java.math.BigDecimal.divide(java.math.BigDecimal, java.math.MathContext)" because "usdLeg" is null
+	at com.northwind.trading.fx.CrossRateCalculator.cross(CrossRateCalculator.java:77)
+	at com.northwind.trading.fx.FxQuoteService.quote(FxQuoteService.java:41)</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.Smoke0" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke1" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke2" name="passes" time="0.1" />
+  </testsuite>
+</testsuites>

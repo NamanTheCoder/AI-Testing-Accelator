@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <testsuite name="pytest-statements" tests="42" failures="2">
+    <testcase classname="tests.statements.test_formatting" name="test_statement_balance_format" time="0.400">
+      <failure message="assert 'A$1,000.00' == 'AUD 1,000.00'" type="AssertionError">Traceback (most recent call last):
+  File "tests/statements/test_formatting.py", line 22, in test_statement_balance_format
+    assert row['display_amount'] == 'AUD 1,000.00'
+AssertionError: assert 'A$1,000.00' == 'AUD 1,000.00'
+  - AUD 1,000.00
+  + A$1,000.00</failure>
+      <system-out>GET /api/v2/statements/latest -&gt; 200 (fields: display_amount, currency, posted_at)</system-out>
+    </testcase>
+    <testcase classname="tests.statements.test_formatting" name="test_transaction_amount_format" time="0.400">
+      <failure message="assert 'A$1,000.00' == 'AUD 1,000.00'" type="AssertionError">Traceback (most recent call last):
+  File "tests/statements/test_formatting.py", line 22, in test_transaction_amount_format
+    assert row['display_amount'] == 'AUD 1,000.00'
+AssertionError: assert 'A$1,000.00' == 'AUD 1,000.00'
+  - AUD 1,000.00
+  + A$1,000.00</failure>
+      <system-out>GET /api/v2/statements/latest -&gt; 200 (fields: display_amount, currency, posted_at)</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.Smoke0" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke1" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke2" name="passes" time="0.1" />
+  </testsuite>
+</testsuites>

@@ -1,0 +1,37 @@
+test_id,category,root_cause,note
+com.northwind.qa.api.payments.TransferApiTest.sameDayTransfer,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.TransferApiTest.futureDatedTransfer,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.TransferApiTest.transferToSavings,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.TransferApiTest.cancelPendingTransfer,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.PayeeApiTest.addDomesticPayee,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.PayeeApiTest.deletePayee,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.PayeeApiTest.listPayees,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.payments.PayeeApiTest.updatePayeeNickname,ENVIRONMENT,E1,Payments DB in SIT was down overnight; every DB-touching API test fails the same way.
+com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudUsd,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudEur,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.api.trading.FxQuoteApiTest.quoteExpiresAfter30s,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.api.trading.FxDealApiTest.bookSpotDeal,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.api.trading.FxDealApiTest.bookForwardDeal,ENVIRONMENT,E2,Third-party FX rates provider sandbox returning 503; not our code.
+com.northwind.qa.ui.LoginUiTest.loginWithMfa,ENVIRONMENT,E3,Selenium Grid node ran out of capacity; browser sessions could not be created.
+com.northwind.qa.ui.DashboardUiTest.showsAccountTiles,ENVIRONMENT,E3,Selenium Grid node ran out of capacity; browser sessions could not be created.
+com.northwind.qa.ui.StatementsUiTest.downloadPdfStatement,ENVIRONMENT,E3,Selenium Grid node ran out of capacity; browser sessions could not be created.
+com.northwind.qa.ui.StatementsUiTest.filterByDateRange,ENVIRONMENT,E3,Selenium Grid node ran out of capacity; browser sessions could not be created.
+com.northwind.qa.api.payments.BpayApiTest.payBillerByCode,ENVIRONMENT,E5,OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug.
+com.northwind.qa.api.payments.BpayApiTest.scheduleBpay,ENVIRONMENT,E5,OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug.
+com.northwind.qa.api.payments.DirectDebitApiTest.createMandate,ENVIRONMENT,E5,OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug.
+com.northwind.qa.ui.PaymentsUiTest.payNewPayee,TEST_BUG,T1,Intentional UI change (see context.json): submit button renamed/re-ided; locators not updated.
+com.northwind.qa.ui.PaymentsUiTest.payExistingPayee,TEST_BUG,T1,Intentional UI change (see context.json): submit button renamed/re-ided; locators not updated.
+com.northwind.qa.ui.PaymentsUiTest.payWithReference,TEST_BUG,T1,Intentional UI change (see context.json): submit button renamed/re-ided; locators not updated.
+com.northwind.qa.ui.InternationalPaymentsUiTest.payInEur,TEST_BUG,T1,Intentional UI change (see context.json): submit button renamed/re-ided; locators not updated.
+tests.statements.test_formatting.test_statement_balance_format,TEST_BUG,T2,"Currency display format intentionally changed (CR-1182, in context.json); test still expects old format. Looks like a product assertion failure without the change context."
+tests.statements.test_formatting.test_transaction_amount_format,TEST_BUG,T2,"Currency display format intentionally changed (CR-1182, in context.json); test still expects old format. Looks like a product assertion failure without the change context."
+com.northwind.qa.api.payments.FeesApiTest.internationalTransferFee,PRODUCT_BUG,P1,International transfer fee calculated 10x too high.
+com.northwind.qa.api.trading.FxCrossRateApiTest.quoteEurJpy,PRODUCT_BUG,P2,Our FX quote service throws NPE for cross-currency pairs after the latest deploy (500).
+com.northwind.qa.api.trading.FxCrossRateApiTest.quoteGbpNzd,PRODUCT_BUG,P2,Our FX quote service throws NPE for cross-currency pairs after the latest deploy (500).
+com.northwind.qa.api.trading.FxCrossRateApiTest.quoteChfSgd,PRODUCT_BUG,P2,Our FX quote service throws NPE for cross-currency pairs after the latest deploy (500).
+com.northwind.qa.api.payments.ComplianceApiTest.rejectsSanctionedCountry,PRODUCT_BUG,P5,Business rule regression: transfer to a sanctioned-country beneficiary is accepted.
+com.northwind.qa.ui.TradeBlotterUiTest.loadsTodayTrades,PRODUCT_BUG,P6,"Real performance regression: trade query lost its index hint in the latest commit; page now takes ~41s. Surface symptom is a UI timeout, which rules call FLAKY."
+com.northwind.qa.ui.TradeBlotterUiTest.sortsByNotional,PRODUCT_BUG,P6,"Real performance regression: trade query lost its index hint in the latest commit; page now takes ~41s. Surface symptom is a UI timeout, which rules call FLAKY."
+com.northwind.qa.ui.TradeBlotterUiTest.amendTradeFromRow,FLAKY,F1,Blotter auto-refresh re-renders rows mid-interaction; intermittent StaleElementReference.
+com.northwind.qa.ui.TradeBlotterUiTest.cancelTradeFromRow,FLAKY,F1,Blotter auto-refresh re-renders rows mid-interaction; intermittent StaleElementReference.
+com.northwind.qa.ui.TradeBlotterUiTest.openTradeDetails,FLAKY,F1,Blotter auto-refresh re-renders rows mid-interaction; intermittent StaleElementReference.

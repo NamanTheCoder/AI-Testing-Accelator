@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testng-results total="52" failed="22">
+  <suite name="ui-regression">
+    <test name="ui">
+      <class name="com.northwind.qa.ui.LoginUiTest">
+        <test-method status="FAIL" name="loginWithMfa" duration-ms="300400">
+          <exception class="org.openqa.selenium.SessionNotCreatedException">
+            <message>Could not start a new session. Response code 500. Message: Could not start a new session. No nodes support the capabilities in the request</message>
+            <full-stacktrace>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Could not start a new session. No nodes support the capabilities in the request
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:229)
+	at com.northwind.qa.core.DriverFactory.create(DriverFactory.java:44)
+	at com.northwind.qa.ui.LoginUiTest.setUp(BaseUiTest.java:22)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>Grid status: 0/12 slots free, queue size 37, request timed out after 300s</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.DashboardUiTest">
+        <test-method status="FAIL" name="showsAccountTiles" duration-ms="300400">
+          <exception class="org.openqa.selenium.SessionNotCreatedException">
+            <message>Could not start a new session. Response code 500. Message: Could not start a new session. No nodes support the capabilities in the request</message>
+            <full-stacktrace>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Could not start a new session. No nodes support the capabilities in the request
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:229)
+	at com.northwind.qa.core.DriverFactory.create(DriverFactory.java:44)
+	at com.northwind.qa.ui.DashboardUiTest.setUp(BaseUiTest.java:22)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>Grid status: 0/12 slots free, queue size 37, request timed out after 300s</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.StatementsUiTest">
+        <test-method status="FAIL" name="downloadPdfStatement" duration-ms="300400">
+          <exception class="org.openqa.selenium.SessionNotCreatedException">
+            <message>Could not start a new session. Response code 500. Message: Could not start a new session. No nodes support the capabilities in the request</message>
+            <full-stacktrace>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Could not start a new session. No nodes support the capabilities in the request
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:229)
+	at com.northwind.qa.core.DriverFactory.create(DriverFactory.java:44)
+	at com.northwind.qa.ui.StatementsUiTest.setUp(BaseUiTest.java:22)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>Grid status: 0/12 slots free, queue size 37, request timed out after 300s</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="filterByDateRange" duration-ms="300400">
+          <exception class="org.openqa.selenium.SessionNotCreatedException">
+            <message>Could not start a new session. Response code 500. Message: Could not start a new session. No nodes support the capabilities in the request</message>
+            <full-stacktrace>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: Could not start a new session. No nodes support the capabilities in the request
+	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:126)
+	at org.openqa.selenium.remote.RemoteWebDriver.startSession(RemoteWebDriver.java:229)
+	at com.northwind.qa.core.DriverFactory.create(DriverFactory.java:44)
+	at com.northwind.qa.ui.StatementsUiTest.setUp(BaseUiTest.java:22)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>Grid status: 0/12 slots free, queue size 37, request timed out after 300s</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.PaymentsUiTest">
+        <test-method status="FAIL" name="payNewPayee" duration-ms="12800">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>no such element: Unable to locate element: {"method":"css selector","selector":"#submit-payment"}</message>
+            <full-stacktrace>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#submit-payment"}
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.PaymentPage.submit(PaymentPage.java:74)
+	at com.northwind.qa.ui.PaymentsUiTest.payNewPayee(PaymentsUiTest.java:51)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>Page title: 'Review payment'; buttons on page: ['#review-confirm', '#cancel']</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="payExistingPayee" duration-ms="12800">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>no such element: Unable to locate element: {"method":"css selector","selector":"#submit-payment"}</message>
+            <full-stacktrace>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#submit-payment"}
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.PaymentPage.submit(PaymentPage.java:74)
+	at com.northwind.qa.ui.PaymentsUiTest.payExistingPayee(PaymentsUiTest.java:51)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>Page title: 'Review payment'; buttons on page: ['#review-confirm', '#cancel']</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="payWithReference" duration-ms="12800">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>no such element: Unable to locate element: {"method":"css selector","selector":"#submit-payment"}</message>
+            <full-stacktrace>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#submit-payment"}
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.PaymentPage.submit(PaymentPage.java:74)
+	at com.northwind.qa.ui.PaymentsUiTest.payWithReference(PaymentsUiTest.java:51)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>Page title: 'Review payment'; buttons on page: ['#review-confirm', '#cancel']</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.InternationalPaymentsUiTest">
+        <test-method status="FAIL" name="payInEur" duration-ms="12800">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>no such element: Unable to locate element: {"method":"css selector","selector":"#submit-payment"}</message>
+            <full-stacktrace>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#submit-payment"}
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.PaymentPage.submit(PaymentPage.java:74)
+	at com.northwind.qa.ui.InternationalPaymentsUiTest.payInEur(InternationalPaymentsUiTest.java:51)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>Page title: 'Review payment'; buttons on page: ['#review-confirm', '#cancel']</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.TradeBlotterUiTest">
+        <test-method status="FAIL" name="emptyBlotterShowsMessage" duration-ms="4200">
+          <exception class="java.lang.NullPointerException">
+            <message>Cannot invoke "java.util.List.size()" because "this.rows" is null</message>
+            <full-stacktrace>java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.rows" is null
+	at com.northwind.qa.pages.TradeBlotterPage.getRowCount(TradeBlotterPage.java:88)
+	at com.northwind.qa.ui.TradeBlotterUiTest.emptyBlotterShowsMessage(TradeBlotterUiTest.java:37)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="FAIL" name="filterBySymbol" duration-ms="4200">
+          <exception class="java.lang.NullPointerException">
+            <message>Cannot invoke "java.util.List.size()" because "this.rows" is null</message>
+            <full-stacktrace>java.lang.NullPointerException: Cannot invoke "java.util.List.size()" because "this.rows" is null
+	at com.northwind.qa.pages.TradeBlotterPage.getRowCount(TradeBlotterPage.java:88)
+	at com.northwind.qa.ui.TradeBlotterUiTest.filterBySymbol(TradeBlotterUiTest.java:37)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="FAIL" name="loadsTodayTrades" duration-ms="30600">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>Expected condition failed: waiting for visibility of element located by By.cssSelector: #blotter-grid .row (tried for 30 second(s) with 500 milliseconds interval)</message>
+            <full-stacktrace>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: #blotter-grid .row (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at com.northwind.qa.pages.TradeBlotterPage.waitForRows(TradeBlotterPage.java:41)
+	at com.northwind.qa.ui.TradeBlotterUiTest.loadsTodayTrades(TradeBlotterUiTest.java:25)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>browser network: GET /api/v1/trades?date=2026-10-27&amp;limit=500 -&gt; 200 in 41213 ms (p50 last 7 days: 820 ms)</line>
+            <line>trading-svc WARN slow query 40987 ms: SELECT ... FROM trades WHERE trade_date = ? (seq scan on trades)</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="sortsByNotional" duration-ms="30600">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>Expected condition failed: waiting for visibility of element located by By.cssSelector: #blotter-grid .row (tried for 30 second(s) with 500 milliseconds interval)</message>
+            <full-stacktrace>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: #blotter-grid .row (tried for 30 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at com.northwind.qa.pages.TradeBlotterPage.waitForRows(TradeBlotterPage.java:41)
+	at com.northwind.qa.ui.TradeBlotterUiTest.sortsByNotional(TradeBlotterUiTest.java:25)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>browser network: GET /api/v1/trades?date=2026-10-27&amp;limit=500 -&gt; 200 in 41213 ms (p50 last 7 days: 820 ms)</line>
+            <line>trading-svc WARN slow query 40987 ms: SELECT ... FROM trades WHERE trade_date = ? (seq scan on trades)</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="amendTradeFromRow" duration-ms="5500">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>stale element reference: stale element not found in the current frame</message>
+            <full-stacktrace>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.TradeBlotterPage.clickRow(TradeBlotterPage.java:66)
+	at com.northwind.qa.ui.TradeBlotterUiTest.amendTradeFromRow(TradeBlotterUiTest.java:58)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>blotter auto-refresh fired at +2.1s (interval 2s)</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="cancelTradeFromRow" duration-ms="5500">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>stale element reference: stale element not found in the current frame</message>
+            <full-stacktrace>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.TradeBlotterPage.clickRow(TradeBlotterPage.java:66)
+	at com.northwind.qa.ui.TradeBlotterUiTest.cancelTradeFromRow(TradeBlotterUiTest.java:58)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>blotter auto-refresh fired at +2.1s (interval 2s)</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="openTradeDetails" duration-ms="5500">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>stale element reference: stale element not found in the current frame</message>
+            <full-stacktrace>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found in the current frame
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.TradeBlotterPage.clickRow(TradeBlotterPage.java:66)
+	at com.northwind.qa.ui.TradeBlotterUiTest.openTradeDetails(TradeBlotterUiTest.java:58)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>blotter auto-refresh fired at +2.1s (interval 2s)</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.TermDepositUiTest">
+        <test-method status="FAIL" name="openTermDeposit" duration-ms="6000">
+          <exception class="com.microsoft.playwright.PlaywrightException">
+            <message>Error: strict mode violation: getByRole(BUTTON, name="Confirm") resolved to 2 elements</message>
+            <full-stacktrace>com.microsoft.playwright.PlaywrightException: Error: strict mode violation: getByRole(BUTTON, name="Confirm") resolved to 2 elements
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:142)
+	at com.northwind.qa.pages.TermDepositPage.confirm(TermDepositPage.java:59)
+	at com.northwind.qa.ui.TermDepositUiTest.openTermDeposit(TermDepositUiTest.java:33)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>1) &lt;button id="td-confirm"&gt;Confirm&lt;/button&gt;  2) &lt;button class="sticky-footer__cta"&gt;Confirm&lt;/button&gt;</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="rolloverTermDeposit" duration-ms="6000">
+          <exception class="com.microsoft.playwright.PlaywrightException">
+            <message>Error: strict mode violation: getByRole(BUTTON, name="Confirm") resolved to 2 elements</message>
+            <full-stacktrace>com.microsoft.playwright.PlaywrightException: Error: strict mode violation: getByRole(BUTTON, name="Confirm") resolved to 2 elements
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:142)
+	at com.northwind.qa.pages.TermDepositPage.confirm(TermDepositPage.java:59)
+	at com.northwind.qa.ui.TermDepositUiTest.rolloverTermDeposit(TermDepositUiTest.java:33)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>1) &lt;button id="td-confirm"&gt;Confirm&lt;/button&gt;  2) &lt;button class="sticky-footer__cta"&gt;Confirm&lt;/button&gt;</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.PayeeUiTest">
+        <test-method status="FAIL" name="addPayeeShowsToast" duration-ms="5600">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>Expected condition failed: waiting for visibility of element located by By.cssSelector: .toast-success (tried for 5 second(s) with 500 milliseconds interval)</message>
+            <full-stacktrace>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: .toast-success (tried for 5 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at com.northwind.qa.pages.PayeePage.waitForToast(PayeePage.java:33)
+	at com.northwind.qa.ui.PayeeUiTest.addPayeeShowsToast(PayeeUiTest.java:40)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>toast rendered at +0.4s, auto-dismissed at +3.4s; wait started at +3.6s</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="FAIL" name="deletePayeeShowsToast" duration-ms="5600">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>Expected condition failed: waiting for visibility of element located by By.cssSelector: .toast-success (tried for 5 second(s) with 500 milliseconds interval)</message>
+            <full-stacktrace>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.cssSelector: .toast-success (tried for 5 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at com.northwind.qa.pages.PayeePage.waitForToast(PayeePage.java:33)
+	at com.northwind.qa.ui.PayeeUiTest.deletePayeeShowsToast(PayeeUiTest.java:40)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>toast rendered at +0.4s, auto-dismissed at +3.4s; wait started at +3.6s</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.CardsUiTest">
+        <test-method status="FAIL" name="freezeCard" duration-ms="3100">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>element click intercepted: Element &lt;button id="freeze"&gt; is not clickable at point (412, 388). Other element would receive the click: &lt;div class="spinner-overlay"&gt;</message>
+            <full-stacktrace>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button id="freeze"&gt; is not clickable at point (412, 388). Other element would receive the click: &lt;div class="spinner-overlay"&gt;
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.CardsPage.toggleFreeze(CardsPage.java:47)
+	at com.northwind.qa.ui.CardsUiTest.freezeCard(CardsUiTest.java:29)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="FAIL" name="unfreezeCard" duration-ms="3100">
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>element click intercepted: Element &lt;button id="freeze"&gt; is not clickable at point (412, 388). Other element would receive the click: &lt;div class="spinner-overlay"&gt;</message>
+            <full-stacktrace>org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;button id="freeze"&gt; is not clickable at point (412, 388). Other element would receive the click: &lt;div class="spinner-overlay"&gt;
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:597)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+	at com.northwind.qa.pages.CardsPage.toggleFreeze(CardsPage.java:47)
+	at com.northwind.qa.ui.CardsUiTest.unfreezeCard(CardsUiTest.java:29)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+      <class name="com.northwind.qa.ui.PortfolioUiTest">
+        <test-method status="FAIL" name="rendersPerformanceChart" duration-ms="10500">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>Expected condition failed: waiting for visibility of element located by By.id: portfolio-chart (tried for 10 second(s) with 500 milliseconds interval)</message>
+            <full-stacktrace>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: portfolio-chart (tried for 10 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at com.northwind.qa.pages.PortfolioPage.waitForChart(PortfolioPage.java:28)
+	at com.northwind.qa.ui.PortfolioUiTest.rendersPerformanceChart(PortfolioUiTest.java:19)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)</full-stacktrace>
+          </exception>
+          <reporter-output>
+            <line>chart data API 200 in 9.6s (cold cache), chart visible at +10.4s</line>
+          </reporter-output>
+        </test-method>
+        <test-method status="PASS" name="sanity" duration-ms="120" />
+      </class>
+    </test>
+  </suite>
+</testng-results>

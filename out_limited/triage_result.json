@@ -1,0 +1,103 @@
+{
+  "stats": {
+    "failures": 36,
+    "clusters": 3,
+    "engine": "groq",
+    "elapsed_s": 78.82,
+    "needs_review": 1,
+    "by_category": {
+      "PRODUCT_BUG": 0,
+      "TEST_BUG": 0,
+      "ENVIRONMENT": 17,
+      "FLAKY": 0
+    },
+    "usage": {
+      "input_tokens": 4899,
+      "output_tokens": 969,
+      "calls": 2,
+      "cache_hits": 0
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "C-b609a6ef",
+      "signature": "HTTP 201->503 | ERROR payments-svc: org.postgresql.util.PSQLException: Connection to <IP>:<N> refused. Check that the hostname and port ",
+      "tests": [
+        "com.northwind.qa.api.payments.TransferApiTest.sameDayTransfer",
+        "com.northwind.qa.api.payments.TransferApiTest.futureDatedTransfer",
+        "com.northwind.qa.api.payments.TransferApiTest.transferToSavings",
+        "com.northwind.qa.api.payments.TransferApiTest.cancelPendingTransfer",
+        "com.northwind.qa.api.payments.PayeeApiTest.addDomesticPayee",
+        "com.northwind.qa.api.payments.PayeeApiTest.deletePayee",
+        "com.northwind.qa.api.payments.PayeeApiTest.listPayees",
+        "com.northwind.qa.api.payments.PayeeApiTest.updatePayeeNickname"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.95,
+        "reason": "All 8 failures share the same signature: payments-svc cannot reach its PostgreSQL database (connection refused on port 5432), causing the service to return HTTP 503 with error \"DB_UNAVAILABLE\". The tests themselves are correct (they expect 201 for a successful transfer/payee operation), and the pass/fail history shows 10 consecutive passes before this run, indicating no code change caused this. The root cause is the payments database being unavailable in the SIT environment. (Alternative considered: PRODUCT_BUG.)",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "ERROR payments-svc: org.postgresql.util.PSQLException: Connection to <IP>:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://<USER>:<SECRET>@<IP>:5432/payments",
+          "WARN  HTTP 503 Service Unavailable {\"error\":\"DB_UNAVAILABLE\"}",
+          "Expected status code <201> but was <503>.",
+          "history (oldest->newest, this run excluded): PPPPPPPPPP"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "SIT payments DB (PostgreSQL) connection refused – all payments API tests return 503",
+        "jira_description": "## Summary\nAll 8 payments API tests in nightly-regression #1482 failed with HTTP 503 because the payments-svc could not connect to its PostgreSQL database in SIT.\n\n## Observed\n- `POST /api/v1/payments/transfers` and payee CRUD endpoints return **503 Service Unavailable** with body `{\"error\":\"DB_UNAVAILABLE\"}`.\n- payments-svc log shows:\n  ```\n  ERROR payments-svc: org.postgresql.util.PSQLException: Connection to <IP>:5432 refused.\n  Check that the hostname and port are correct and that the",
+        "engine": "groq:qwen/qwen3.8-27b"
+      }
+    },
+    {
+      "cluster_id": "C-5d5b5bd3",
+      "signature": "HTTP 200->502 | ERROR fx-gateway: upstream rates.partner-sandbox.example.net responded <N> Service Unavailable (attempt <N>/<N>)",
+      "tests": [
+        "com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudUsd",
+        "com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudEur",
+        "com.northwind.qa.api.trading.FxQuoteApiTest.quoteExpiresAfter30s",
+        "com.northwind.qa.api.trading.FxDealApiTest.bookSpotDeal",
+        "com.northwind.qa.api.trading.FxDealApiTest.bookForwardDeal"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.95,
+        "reason": "All 5 failures share the same signature: our fx-gateway received a 503 from the external upstream rates.partner-sandbox.example.net (after 3 retries) and returned 502 to the test. The tests themselves are correct (they assert 200) and have a clean 10-pass history, so this is a downstream/third-party service outage in the SIT environment, not a product or test defect. (Alternative considered: FLAKY.)",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "ERROR fx-gateway: upstream rates.partner-sandbox.example.net responded 503 Service Unavailable (attempt 3/3)",
+          "WARN  returning 502 Bad Gateway to caller",
+          "Expected status code <200> but was <502>.",
+          "history (oldest->newest, this run excluded): PPPPPPPPPP"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "FX tests fail with 502: upstream rates.partner-sandbox.example.net returning 503 in SIT",
+        "jira_description": "## Summary\nNightly regression #1482 (SIT, 2026-10-28 01:00 AEDT, northwind-platform 4.18.0-rc3) — 5 FX API tests failed because the external FX rates provider returned 503, causing our fx-gateway to return 502.\n\n## Observed\n- Tests assert HTTP 200 but receive 502 Bad Gateway.\n- fx-gateway log: `upstream rates.partner-sandbox.example.net responded 503 Service Unavailable (attempt 3/3)` followed by `returning 502 Bad Gateway to caller`.\n- All 5 failures share the identical signature and log; 3",
+        "engine": "groq:qwen/qwen3.8-27b"
+      }
+    },
+    {
+      "cluster_id": "C-ccefadee",
+      "signature": "SessionNotCreatedException | Could not start a new session. Response code <N>. Message: Could not start a new session. No nodes support the capabilities in the request",
+      "tests": [
+        "com.northwind.qa.ui.LoginUiTest.loginWithMfa",
+        "com.northwind.qa.ui.DashboardUiTest.showsAccountTiles",
+        "com.northwind.qa.ui.StatementsUiTest.downloadPdfStatement",
+        "com.northwind.qa.ui.StatementsUiTest.filterByDateRange"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.7,
+        "reason": "[LLM unavailable: RateLimitError: Error code: 429 - {'error': {'message': 'Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01kne1t033fzba91qzyxv60aya` service tier `on_demand` on output tokens per minute (OTPM): Limit 1000, Used 517, Requested 532. Please try again in 2.94s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing', 'type': 'tokens', 'code': 'rate_limit_exceeded'}}] Matched environment pattern /grid status/",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "grid status"
+        ],
+        "needs_human_review": true,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    }
+  ]
+}

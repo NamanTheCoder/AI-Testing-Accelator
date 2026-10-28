@@ -1,0 +1,37 @@
+<testsuites>
+  <testsuite name="api-payments" tests="53" failures="13">
+    <testcase classname="com.northwind.qa.api.payments.TransferApiTest" name="sameDayTransfer" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.TransferApiTest.sameDayTransfer(TransferApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.TransferApiTest" name="futureDatedTransfer" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.TransferApiTest.futureDatedTransfer(TransferApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.api.payments.TransferApiTest" name="transferToSavings" time="1.200">
+      <failure message="1 expectation failed. Expected status code &lt;201&gt; but was &lt;503&gt;." type="java.lang.AssertionError">java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;201&gt; but was &lt;503&gt;.
+	at io.restassured.internal.ValidatableResponseImpl.statusCode(ValidatableResponseImpl.groovy:89)
+	at com.northwind.qa.api.payments.TransferApiTest.transferToSavings(TransferApiTest.java:58)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>2026-10-28T01:14:09.311Z INFO  POST /api/v1/payments/transfers accountNumber=062000123456 customerName="Priya Sharma" email=priya.sharma@example.com
+2026-10-28T01:14:09.877Z ERROR payments-svc: org.postgresql.util.PSQLException: Connection to 10.42.8.17:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections. url=jdbc:postgresql://svc_payments:Sup3rS3cret@10.42.8.17:5432/payments
+2026-10-28T01:14:09.879Z WARN  HTTP 503 Service Unavailable {"error":"DB_UNAVAILABLE"}</system-out>
+    </testcase>
+    </testsuite>
+</testsuites>

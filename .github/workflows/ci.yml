@@ -1,0 +1,23 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - name: Evaluate rules baseline (offline)
+        run: python -m failtriage eval data/eval_run --engines rules --out ci-results
+      - name: Evaluate Claude (only when a key is configured)
+        if: env.ANTHROPIC_API_KEY != ''
+        run: python -m failtriage eval data/eval_run --engines claude --out ci-results
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: ci-results/

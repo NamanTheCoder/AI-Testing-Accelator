@@ -1,0 +1,203 @@
+{
+  "engines": {
+    "rules baseline": {
+      "stats": {
+        "failures": 71,
+        "clusters": 34,
+        "engine": "rules",
+        "elapsed_s": 0.01,
+        "needs_review": 3,
+        "by_category": {
+          "PRODUCT_BUG": 24,
+          "TEST_BUG": 10,
+          "ENVIRONMENT": 22,
+          "FLAKY": 15
+        }
+      },
+      "score": {
+        "failures": 71,
+        "missing_from_prediction": [],
+        "true_root_causes": 32,
+        "predicted_groups": 34,
+        "accuracy": 0.803,
+        "macro_f1": 0.794,
+        "per_class": {
+          "PRODUCT_BUG": {
+            "precision": 0.667,
+            "recall": 0.889,
+            "f1": 0.762,
+            "support": 18
+          },
+          "TEST_BUG": {
+            "precision": 1.0,
+            "recall": 0.667,
+            "f1": 0.8,
+            "support": 15
+          },
+          "ENVIRONMENT": {
+            "precision": 1.0,
+            "recall": 0.759,
+            "f1": 0.863,
+            "support": 29
+          },
+          "FLAKY": {
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1": 0.75,
+            "support": 9
+          }
+        },
+        "confusion": {
+          "PRODUCT_BUG": {
+            "PRODUCT_BUG": 16,
+            "TEST_BUG": 0,
+            "ENVIRONMENT": 0,
+            "FLAKY": 2
+          },
+          "TEST_BUG": {
+            "PRODUCT_BUG": 5,
+            "TEST_BUG": 10,
+            "ENVIRONMENT": 0,
+            "FLAKY": 0
+          },
+          "ENVIRONMENT": {
+            "PRODUCT_BUG": 3,
+            "TEST_BUG": 0,
+            "ENVIRONMENT": 22,
+            "FLAKY": 4
+          },
+          "FLAKY": {
+            "PRODUCT_BUG": 0,
+            "TEST_BUG": 0,
+            "ENVIRONMENT": 0,
+            "FLAKY": 9
+          }
+        },
+        "grouping": {
+          "pairwise_precision": 1.0,
+          "pairwise_recall": 0.974,
+          "pairwise_f1": 0.987
+        },
+        "auto_accepted_share": 0.944,
+        "accuracy_when_confident": 0.821,
+        "accuracy_when_flagged": 0.5,
+        "errors": [
+          {
+            "test_id": "com.northwind.qa.api.payments.BpayApiTest.payBillerByCode",
+            "expected": "ENVIRONMENT",
+            "predicted": "PRODUCT_BUG",
+            "root_cause": "E5",
+            "flagged_for_review": false,
+            "note": "OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug."
+          },
+          {
+            "test_id": "com.northwind.qa.api.payments.BpayApiTest.scheduleBpay",
+            "expected": "ENVIRONMENT",
+            "predicted": "PRODUCT_BUG",
+            "root_cause": "E5",
+            "flagged_for_review": false,
+            "note": "OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug."
+          },
+          {
+            "test_id": "com.northwind.qa.api.payments.DirectDebitApiTest.createMandate",
+            "expected": "ENVIRONMENT",
+            "predicted": "PRODUCT_BUG",
+            "root_cause": "E5",
+            "flagged_for_review": false,
+            "note": "OAuth client secret for the SIT test client expired on 27 Oct; 401 invalid_client from the IdP. Rules engines tend to call any 401 a product bug."
+          },
+          {
+            "test_id": "com.northwind.qa.api.trading.SettlementEventTest.publishesSettledEvent",
+            "expected": "ENVIRONMENT",
+            "predicted": "FLAKY",
+            "root_cause": "E7",
+            "flagged_for_review": false,
+            "note": "Kafka broker in SIT unavailable, so settlement events never arrive and the test times out. The exception is a timeout; the cause is only visible in the log."
+          },
+          {
+            "test_id": "com.northwind.qa.api.trading.SettlementEventTest.publishesFailedSettlementEvent",
+            "expected": "ENVIRONMENT",
+            "predicted": "FLAKY",
+            "root_cause": "E7",
+            "flagged_for_review": false,
+            "note": "Kafka broker in SIT unavailable, so settlement events never arrive and the test times out. The exception is a timeout; the cause is only visible in the log."
+          },
+          {
+            "test_id": "com.northwind.qa.api.payments.CardPaymentApiTest.authoriseCard",
+            "expected": "ENVIRONMENT",
+            "predicted": "FLAKY",
+            "root_cause": "E8",
+            "flagged_for_review": false,
+            "note": "Card-gateway sandbox is intermittently overloaded (503). History flips, but the cause is the environment, not the test. Rules that look at history first call this FLAKY."
+          },
+          {
+            "test_id": "com.northwind.qa.api.payments.CardPaymentApiTest.refundCard",
+            "expected": "ENVIRONMENT",
+            "predicted": "FLAKY",
+            "root_cause": "E8",
+            "flagged_for_review": false,
+            "note": "Card-gateway sandbox is intermittently overloaded (503). History flips, but the cause is the environment, not the test. Rules that look at history first call this FLAKY."
+          },
+          {
+            "test_id": "tests.statements.test_formatting.test_statement_balance_format",
+            "expected": "TEST_BUG",
+            "predicted": "PRODUCT_BUG",
+            "root_cause": "T2",
+            "flagged_for_review": false,
+            "note": "Currency display format intentionally changed (CR-1182, in context.json); test still expects old format. Looks like a product assertion failure without the change context."
+          },
+          {
+            "test_id": "tests.statements.test_formatting.test_transaction_amount_format",
+            "expected": "TEST_BUG",
+            "predicted": "PRODUCT_BUG",
+            "root_cause": "T2",
+            "flagged_for_review": false,
+            "note": "Currency display format intentionally changed (CR-1182, in context.json); test still expects old format. Looks like a product assertion failure without the change context."
+          },
+          {
+            "test_id": "com.northwind.qa.api.trading.OrderApiTest.placeLimitOrder",
+            "expected": "TEST_BUG",
+            "predicted": "PRODUCT_BUG",
+            "root_cause": "T4",
+            "flagged_for_review": false,
+            "note": "Test-order dependency: a hard-coded order id is reused and the previous test does not clean up."
+          },
+          {
+            "test_id": "com.northwind.qa.api.payments.AccountApiTest.getBalance",
+            "expected": "TEST_BUG",
+            "predicted": "PRODUCT_BUG",
+            "root_cause": "T6",
+            "flagged_for_review": true,
+            "note": "API v2 intentionally renamed $.data.balance to $.data.availableBalance (context.json); test JSON path is stale."
+          },
+          {
+            "test_id": "com.northwind.qa.api.payments.AccountApiTest.balanceAfterTransfer",
+            "expected": "TEST_BUG",
+            "predicted": "PRODUCT_BUG",
+            "root_cause": "T6",
+            "flagged_for_review": true,
+            "note": "API v2 intentionally renamed $.data.balance to $.data.availableBalance (context.json); test JSON path is stale."
+          },
+          {
+            "test_id": "com.northwind.qa.ui.TradeBlotterUiTest.loadsTodayTrades",
+            "expected": "PRODUCT_BUG",
+            "predicted": "FLAKY",
+            "root_cause": "P6",
+            "flagged_for_review": false,
+            "note": "Real performance regression: trade query lost its index hint in the latest commit; page now takes ~41s. Surface symptom is a UI timeout, which rules call FLAKY."
+          },
+          {
+            "test_id": "com.northwind.qa.ui.TradeBlotterUiTest.sortsByNotional",
+            "expected": "PRODUCT_BUG",
+            "predicted": "FLAKY",
+            "root_cause": "P6",
+            "flagged_for_review": false,
+            "note": "Real performance regression: trade query lost its index hint in the latest commit; page now takes ~41s. Surface symptom is a UI timeout, which rules call FLAKY."
+          }
+        ],
+        "silent_errors": 12
+      }
+    }
+  },
+  "manual": null
+}
