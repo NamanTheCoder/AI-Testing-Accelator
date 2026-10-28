@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <testsuite name="pytest-statements" tests="50" failures="10">
+    <testcase classname="tests.statements.test_statements" name="test_monthly_statement_totals" time="0.300">
+      <failure message="No eligible test account with status ACTIVE found in pool 'SIT-AU' (0 of 250 free)" type="testdata.pool.PoolExhaustedError">Traceback (most recent call last):
+  File "tests/statements/test_statements.py", line 31, in test_monthly_statement_totals
+    acct = pool.checkout(status='ACTIVE')
+  File "testdata/pool.py", line 88, in checkout
+    raise PoolExhaustedError(...)
+testdata.pool.PoolExhaustedError: No eligible test account with status ACTIVE found in pool 'SIT-AU' (0 of 250 free)</failure>
+      <system-out>pool stats: total=250 leased=250 expired_leases=0 last_reset=2026-10-21</system-out>
+    </testcase>
+    <testcase classname="tests.statements.test_statements" name="test_statement_csv_export_headers" time="0.300">
+      <failure message="No eligible test account with status ACTIVE found in pool 'SIT-AU' (0 of 250 free)" type="testdata.pool.PoolExhaustedError">Traceback (most recent call last):
+  File "tests/statements/test_statements.py", line 31, in test_statement_csv_export_headers
+    acct = pool.checkout(status='ACTIVE')
+  File "testdata/pool.py", line 88, in checkout
+    raise PoolExhaustedError(...)
+testdata.pool.PoolExhaustedError: No eligible test account with status ACTIVE found in pool 'SIT-AU' (0 of 250 free)</failure>
+      <system-out>pool stats: total=250 leased=250 expired_leases=0 last_reset=2026-10-21</system-out>
+    </testcase>
+    <testcase classname="tests.statements.test_statements" name="test_interest_line_present" time="0.300">
+      <failure message="No eligible test account with status ACTIVE found in pool 'SIT-AU' (0 of 250 free)" type="testdata.pool.PoolExhaustedError">Traceback (most recent call last):
+  File "tests/statements/test_statements.py", line 31, in test_interest_line_present
+    acct = pool.checkout(status='ACTIVE')
+  File "testdata/pool.py", line 88, in checkout
+    raise PoolExhaustedError(...)
+testdata.pool.PoolExhaustedError: No eligible test account with status ACTIVE found in pool 'SIT-AU' (0 of 250 free)</failure>
+      <system-out>pool stats: total=250 leased=250 expired_leases=0 last_reset=2026-10-21</system-out>
+    </testcase>
+    <testcase classname="tests.statements.test_formatting" name="test_statement_balance_format" time="0.400">
+      <failure message="assert 'A$1,000.00' == 'AUD 1,000.00'" type="AssertionError">Traceback (most recent call last):
+  File "tests/statements/test_formatting.py", line 22, in test_statement_balance_format
+    assert row['display_amount'] == 'AUD 1,000.00'
+AssertionError: assert 'A$1,000.00' == 'AUD 1,000.00'
+  - AUD 1,000.00
+  + A$1,000.00</failure>
+      <system-out>GET /api/v2/statements/latest -&gt; 200 (fields: display_amount, currency, posted_at)</system-out>
+    </testcase>
+    <testcase classname="tests.statements.test_formatting" name="test_transaction_amount_format" time="0.400">
+      <failure message="assert 'A$1,000.00' == 'AUD 1,000.00'" type="AssertionError">Traceback (most recent call last):
+  File "tests/statements/test_formatting.py", line 22, in test_transaction_amount_format
+    assert row['display_amount'] == 'AUD 1,000.00'
+AssertionError: assert 'A$1,000.00' == 'AUD 1,000.00'
+  - AUD 1,000.00
+  + A$1,000.00</failure>
+      <system-out>GET /api/v2/statements/latest -&gt; 200 (fields: display_amount, currency, posted_at)</system-out>
+    </testcase>
+    <testcase classname="tests.payments.test_transfers_api" name="test_transfer_limits" time="0.010">
+      <failure message="build_transfer() missing 1 required positional argument: 'currency'" type="TypeError">Traceback (most recent call last):
+  File "tests/payments/test_transfers_api.py", line 40, in test_transfer_limits
+    payload = build_transfer(src, dst, 100)
+  File "tests/helpers/payload_builder.py", line 12, in build_transfer
+    def build_transfer(src, dst, amount, currency):
+TypeError: build_transfer() missing 1 required positional argument: 'currency'</failure>
+    </testcase>
+    <testcase classname="tests.payments.test_transfers_api" name="test_transfer_same_currency" time="0.010">
+      <failure message="build_transfer() missing 1 required positional argument: 'currency'" type="TypeError">Traceback (most recent call last):
+  File "tests/payments/test_transfers_api.py", line 40, in test_transfer_same_currency
+    payload = build_transfer(src, dst, 100)
+  File "tests/helpers/payload_builder.py", line 12, in build_transfer
+    def build_transfer(src, dst, amount, currency):
+TypeError: build_transfer() missing 1 required positional argument: 'currency'</failure>
+    </testcase>
+    <testcase classname="tests.statements.test_exports" name="test_csv_contains_all_transactions" time="0.900">
+      <failure message="assert 11 == 12" type="AssertionError">Traceback (most recent call last):
+  File "tests/statements/test_exports.py", line 54, in test_csv_contains_all_transactions
+    assert len(rows) == len(seeded_txns)
+AssertionError: assert 11 == 12
+ +  where 11 = len([...])</failure>
+      <system-out>seeded 12 transactions for acct-2b91 (2026-10-01..2026-10-27); export returned 11 rows; missing id txn-0012 (2026-10-27)</system-out>
+    </testcase>
+    <testcase classname="tests.statements.test_statement_fields" name="test_settlement_date_present" time="0.400">
+      <failure message="'settlementDate'" type="KeyError">Traceback (most recent call last):
+  File "tests/statements/test_statement_fields.py", line 18, in test_settlement_date_present
+    settled = txn['settlementDate']
+KeyError: 'settlementDate'</failure>
+      <system-out>GET /api/v2/statements/latest -&gt; 200 first txn keys: ['id','postedAt','amount','currency','display_amount','description']</system-out>
+    </testcase>
+    <testcase classname="tests.statements.test_statement_fields" name="test_settlement_after_posting" time="0.400">
+      <failure message="'settlementDate'" type="KeyError">Traceback (most recent call last):
+  File "tests/statements/test_statement_fields.py", line 18, in test_settlement_after_posting
+    settled = txn['settlementDate']
+KeyError: 'settlementDate'</failure>
+      <system-out>GET /api/v2/statements/latest -&gt; 200 first txn keys: ['id','postedAt','amount','currency','display_amount','description']</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.Smoke0" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke1" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke2" name="passes" time="0.1" />
+  </testsuite>
+</testsuites>

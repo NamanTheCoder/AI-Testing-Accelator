@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <testsuite name="component-core" tests="46" failures="6">
+    <testcase classname="com.northwind.payments.SanctionsScreeningComponentTest" name="screensBeneficiaryName" time="0.900">
+      <failure message="PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed" type="javax.net.ssl.SSLHandshakeException">javax.net.ssl.SSLHandshakeException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed
+	at sun.security.ssl.Alert.createSSLException(Alert.java:131)
+	at com.northwind.payments.sanctions.ScreeningClient.screen(ScreeningClient.java:52)
+	at com.northwind.payments.SanctionsScreeningComponentTest.screensBeneficiaryName(SanctionsScreeningComponentTest.java:40)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Mon Oct 27 23:59:59 UTC 2026</failure>
+      <system-out>Connecting to https://sanctions-stub.sit.northwind.internal:8443</system-out>
+    </testcase>
+    <testcase classname="com.northwind.payments.SanctionsScreeningComponentTest" name="blocksListedEntity" time="0.900">
+      <failure message="PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed" type="javax.net.ssl.SSLHandshakeException">javax.net.ssl.SSLHandshakeException: PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed
+	at sun.security.ssl.Alert.createSSLException(Alert.java:131)
+	at com.northwind.payments.sanctions.ScreeningClient.screen(ScreeningClient.java:52)
+	at com.northwind.payments.SanctionsScreeningComponentTest.blocksListedEntity(SanctionsScreeningComponentTest.java:40)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)
+Caused by: java.security.cert.CertificateExpiredException: NotAfter: Mon Oct 27 23:59:59 UTC 2026</failure>
+      <system-out>Connecting to https://sanctions-stub.sit.northwind.internal:8443</system-out>
+    </testcase>
+    <testcase classname="com.northwind.payments.LimitServiceComponentTest" name="defaultLimitApplied" time="0.200">
+      <failure message="Cannot invoke &quot;com.northwind.payments.limits.LimitOverride.getAmount()&quot; because &quot;override&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "com.northwind.payments.limits.LimitOverride.getAmount()" because "override" is null
+	at com.northwind.payments.limits.LimitService.checkDailyLimit(LimitService.java:113)
+	at com.northwind.payments.limits.LimitService.validate(LimitService.java:58)
+	at com.northwind.payments.LimitServiceComponentTest.defaultLimitApplied(LimitServiceComponentTest.java:45)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+    </testcase>
+    <testcase classname="com.northwind.payments.LimitServiceComponentTest" name="limitResetsAtMidnight" time="0.200">
+      <failure message="Cannot invoke &quot;com.northwind.payments.limits.LimitOverride.getAmount()&quot; because &quot;override&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "com.northwind.payments.limits.LimitOverride.getAmount()" because "override" is null
+	at com.northwind.payments.limits.LimitService.checkDailyLimit(LimitService.java:113)
+	at com.northwind.payments.limits.LimitService.validate(LimitService.java:58)
+	at com.northwind.payments.LimitServiceComponentTest.limitResetsAtMidnight(LimitServiceComponentTest.java:45)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+    </testcase>
+    <testcase classname="com.northwind.payments.InterestAccrualComponentTest" name="monthlyAccrualRounding" time="0.100">
+      <failure message="expected: &lt;1033.32&gt; but was: &lt;1033.33&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;1033.32&gt; but was: &lt;1033.33&gt;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at com.northwind.payments.InterestAccrualComponentTest.monthlyAccrualRounding(InterestAccrualComponentTest.java:71)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>accrual: principal=250000.00 rate=4.96% days=30 raw=1033.325 rounding=HALF_UP</system-out>
+    </testcase>
+    <testcase classname="com.northwind.payments.AuditTrailComponentTest" name="approvalIsAudited" time="0.500">
+      <failure message="Audit events for pay-5e2d ==&gt; expected event PAYMENT_APPROVED but found [PAYMENT_CREATED, PAYMENT_SENT]" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: Audit events for pay-5e2d ==&gt; expected event PAYMENT_APPROVED but found [PAYMENT_CREATED, PAYMENT_SENT]
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
+	at com.northwind.payments.AuditTrailComponentTest.approvalIsAudited(AuditTrailComponentTest.java:52)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:151)</failure>
+      <system-out>approver=ops.user@example.com approved pay-5e2d at 2026-10-28T01:40:11Z</system-out>
+    </testcase>
+    <testcase classname="com.northwind.qa.Smoke0" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke1" name="passes" time="0.1" />
+    <testcase classname="com.northwind.qa.Smoke2" name="passes" time="0.1" />
+  </testsuite>
+</testsuites>

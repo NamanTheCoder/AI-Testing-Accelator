@@ -1,0 +1,728 @@
+{
+  "stats": {
+    "failures": 71,
+    "clusters": 34,
+    "engine": "rules",
+    "elapsed_s": 0.02,
+    "needs_review": 3,
+    "by_category": {
+      "PRODUCT_BUG": 24,
+      "TEST_BUG": 10,
+      "ENVIRONMENT": 22,
+      "FLAKY": 15
+    }
+  },
+  "clusters": [
+    {
+      "cluster_id": "C-b609a6ef",
+      "signature": "HTTP 201->503 | ERROR payments-svc: org.postgresql.util.PSQLException: Connection to <IP>:<N> refused. Check that the hostname and port ",
+      "tests": [
+        "com.northwind.qa.api.payments.TransferApiTest.sameDayTransfer",
+        "com.northwind.qa.api.payments.TransferApiTest.futureDatedTransfer",
+        "com.northwind.qa.api.payments.TransferApiTest.transferToSavings",
+        "com.northwind.qa.api.payments.TransferApiTest.cancelPendingTransfer",
+        "com.northwind.qa.api.payments.PayeeApiTest.addDomesticPayee",
+        "com.northwind.qa.api.payments.PayeeApiTest.deletePayee",
+        "com.northwind.qa.api.payments.PayeeApiTest.listPayees",
+        "com.northwind.qa.api.payments.PayeeApiTest.updatePayeeNickname"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.7,
+        "reason": "Matched environment pattern /\\b50[234]\\b/",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "\\b50[234]\\b"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-5d5b5bd3",
+      "signature": "HTTP 200->502 | ERROR fx-gateway: upstream rates.partner-sandbox.example.net responded <N> Service Unavailable (attempt <N>/<N>)",
+      "tests": [
+        "com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudUsd",
+        "com.northwind.qa.api.trading.FxQuoteApiTest.quoteAudEur",
+        "com.northwind.qa.api.trading.FxQuoteApiTest.quoteExpiresAfter30s",
+        "com.northwind.qa.api.trading.FxDealApiTest.bookSpotDeal",
+        "com.northwind.qa.api.trading.FxDealApiTest.bookForwardDeal"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.7,
+        "reason": "Matched environment pattern /\\b50[234]\\b/",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "\\b50[234]\\b"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-ccefadee",
+      "signature": "SessionNotCreatedException | Could not start a new session. Response code <N>. Message: Could not start a new session. No nodes support the capabilities in the request",
+      "tests": [
+        "com.northwind.qa.ui.LoginUiTest.loginWithMfa",
+        "com.northwind.qa.ui.DashboardUiTest.showsAccountTiles",
+        "com.northwind.qa.ui.StatementsUiTest.downloadPdfStatement",
+        "com.northwind.qa.ui.StatementsUiTest.filterByDateRange"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.7,
+        "reason": "Matched environment pattern /grid status/",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "grid status"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-7bc7d62b",
+      "signature": "NoSuchElementException | no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"#submit-payment\"}",
+      "tests": [
+        "com.northwind.qa.ui.PaymentsUiTest.payNewPayee",
+        "com.northwind.qa.ui.PaymentsUiTest.payExistingPayee",
+        "com.northwind.qa.ui.PaymentsUiTest.payWithReference",
+        "com.northwind.qa.ui.InternationalPaymentsUiTest.payInEur"
+      ],
+      "verdict": {
+        "category": "TEST_BUG",
+        "confidence": 0.65,
+        "reason": "Matched locator/test pattern /nosuchelement/",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "nosuchelement"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-e8c5472d",
+      "signature": "HTTP 200->401 | POST https://idp-sit.northwind.internal/oauth<N>/token grant_type=client_credentials client_id=qa-automation-sit client_",
+      "tests": [
+        "com.northwind.qa.api.payments.BpayApiTest.payBillerByCode",
+        "com.northwind.qa.api.payments.BpayApiTest.scheduleBpay",
+        "com.northwind.qa.api.payments.DirectDebitApiTest.createMandate"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /expected .* but (was|found)/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "expected .* but (was|found)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-259f8b9c",
+      "signature": "HTTP 200->500 | trading-svc ERROR [req-<N>a<N>f] Unhandled exception on GET /api/v<N>/fx/quote",
+      "tests": [
+        "com.northwind.qa.api.trading.FxCrossRateApiTest.quoteEurJpy",
+        "com.northwind.qa.api.trading.FxCrossRateApiTest.quoteGbpNzd",
+        "com.northwind.qa.api.trading.FxCrossRateApiTest.quoteChfSgd"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /\\b500\\b/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "\\b500\\b"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-7310e240",
+      "signature": "PoolExhaustedError | No eligible test account with status ACTIVE found in pool 'SIT-AU' (<N> of <N> free)",
+      "tests": [
+        "tests.statements.test_statements.test_monthly_statement_totals",
+        "tests.statements.test_statements.test_statement_csv_export_headers",
+        "tests.statements.test_statements.test_interest_line_present"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.7,
+        "reason": "Matched environment pattern /no (eligible|available) test (account|data)/",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "no (eligible|available) test (account|data)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-5c292be3",
+      "signature": "StaleElementReferenceException | stale element reference: stale element not found in the current frame",
+      "tests": [
+        "com.northwind.qa.ui.TradeBlotterUiTest.amendTradeFromRow",
+        "com.northwind.qa.ui.TradeBlotterUiTest.cancelTradeFromRow",
+        "com.northwind.qa.ui.TradeBlotterUiTest.openTradeDetails"
+      ],
+      "verdict": {
+        "category": "FLAKY",
+        "confidence": 0.6,
+        "reason": "History 'PPFPPPFPPF' flips 5 times",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "history=PPFPPPFPPF"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-c44c5ec6",
+      "signature": "HTTP 200->503 | card-gateway-sandbox: <N> Service Unavailable - Retry-After: <N> (sandbox capacity exceeded)",
+      "tests": [
+        "com.northwind.qa.api.payments.CardPaymentApiTest.authoriseCard",
+        "com.northwind.qa.api.payments.CardPaymentApiTest.refundCard"
+      ],
+      "verdict": {
+        "category": "FLAKY",
+        "confidence": 0.6,
+        "reason": "History 'PPFPPFPPPF' flips 5 times",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "history=PPFPPFPPPF"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-c2cd68a3",
+      "signature": "IllegalArgumentException | No results for path: $['data']['balance'] | com.northwind.qa.core.Json.read(Json.java)",
+      "tests": [
+        "com.northwind.qa.api.payments.AccountApiTest.getBalance",
+        "com.northwind.qa.api.payments.AccountApiTest.balanceAfterTransfer"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.3,
+        "reason": "No rule matched; defaulting to product bug",
+        "suggested_owner": "dev",
+        "evidence": [],
+        "needs_human_review": true,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-3582adf2",
+      "signature": "HTTP 200->404 | GET /api/v<N>/accounts/acct-<N>f<N>a/limits -> <N> {\"error\":\"No route\"}; /api/v<N>/accounts/acct-<N>f<N>a -> <N>",
+      "tests": [
+        "com.northwind.qa.api.payments.LimitsApiTest.getDailyLimit",
+        "com.northwind.qa.api.payments.LimitsApiTest.updateDailyLimit"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /expected .* but (was|found)/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "expected .* but (was|found)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-b90db00f",
+      "signature": "ConditionTimeoutException | Condition with lambda expression in com.northwind.qa.events.EventProbe was not fulfilled within <N> seconds.",
+      "tests": [
+        "com.northwind.qa.api.trading.SettlementEventTest.publishesSettledEvent",
+        "com.northwind.qa.api.trading.SettlementEventTest.publishesFailedSettlementEvent"
+      ],
+      "verdict": {
+        "category": "FLAKY",
+        "confidence": 0.5,
+        "reason": "Matched timing pattern /timeoutexception/",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "timeoutexception"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-35bb3db1",
+      "signature": "SSLHandshakeException | PKIX path validation failed: java.security.cert.CertPathValidatorException: validity check failed",
+      "tests": [
+        "com.northwind.payments.SanctionsScreeningComponentTest.screensBeneficiaryName",
+        "com.northwind.payments.SanctionsScreeningComponentTest.blocksListedEntity"
+      ],
+      "verdict": {
+        "category": "ENVIRONMENT",
+        "confidence": 0.7,
+        "reason": "Matched environment pattern /sslhandshake/",
+        "suggested_owner": "platform/devops",
+        "evidence": [
+          "sslhandshake"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-a8bc84a7",
+      "signature": "NullPointerException | Cannot invoke \"com.northwind.payments.limits.LimitOverride.getAmount()\" because \"override\" is null | com.northwind.payments.limits.LimitService.checkDailyLimit(LimitService.java)",
+      "tests": [
+        "com.northwind.payments.LimitServiceComponentTest.defaultLimitApplied",
+        "com.northwind.payments.LimitServiceComponentTest.limitResetsAtMidnight"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Null/type error at com.northwind.payments.limits.LimitService.checkDailyLimit(LimitService.java)",
+        "suggested_owner": "dev",
+        "evidence": [
+          "com.northwind.payments.limits.LimitService.checkDailyLimit(LimitService.java)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-e7ec78d4",
+      "signature": "TypeError | build_transfer() missing <N> required positional argument: 'currency' | tests/helpers/payload_builder.py:build_transfer",
+      "tests": [
+        "tests.payments.test_transfers_api.test_transfer_limits",
+        "tests.payments.test_transfers_api.test_transfer_same_currency"
+      ],
+      "verdict": {
+        "category": "TEST_BUG",
+        "confidence": 0.55,
+        "reason": "Null/type error at tests/helpers/payload_builder.py:build_transfer",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "tests/helpers/payload_builder.py:build_transfer"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-f74096e1",
+      "signature": "NullPointerException | Cannot invoke \"java.util.List.size()\" because \"this.rows\" is null | com.northwind.qa.pages.TradeBlotterPage.getRowCount(TradeBlotterPage.java)",
+      "tests": [
+        "com.northwind.qa.ui.TradeBlotterUiTest.emptyBlotterShowsMessage",
+        "com.northwind.qa.ui.TradeBlotterUiTest.filterBySymbol"
+      ],
+      "verdict": {
+        "category": "TEST_BUG",
+        "confidence": 0.55,
+        "reason": "Null/type error at com.northwind.qa.pages.TradeBlotterPage.getRowCount(TradeBlotterPage.java)",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "com.northwind.qa.pages.TradeBlotterPage.getRowCount(TradeBlotterPage.java)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-5db9184e",
+      "signature": "TimeoutException | Expected condition failed: waiting for visibility of element located by By.cssSelector: #blotter-grid .row (tried for <N> second(s) with <N> milliseconds interval)",
+      "tests": [
+        "com.northwind.qa.ui.TradeBlotterUiTest.loadsTodayTrades",
+        "com.northwind.qa.ui.TradeBlotterUiTest.sortsByNotional"
+      ],
+      "verdict": {
+        "category": "FLAKY",
+        "confidence": 0.5,
+        "reason": "Matched timing pattern /timeoutexception/",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "timeoutexception"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-3cfd7e6b",
+      "signature": "PlaywrightException | Error: strict mode violation: getByRole(BUTTON, name=\"Confirm\") resolved to <N> elements",
+      "tests": [
+        "com.northwind.qa.ui.TermDepositUiTest.openTermDeposit",
+        "com.northwind.qa.ui.TermDepositUiTest.rolloverTermDeposit"
+      ],
+      "verdict": {
+        "category": "TEST_BUG",
+        "confidence": 0.65,
+        "reason": "Matched locator/test pattern /strict mode violation/",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "strict mode violation"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-f3da7c7d",
+      "signature": "TimeoutException | Expected condition failed: waiting for visibility of element located by By.cssSelector: .toast-success (tried for <N> second(s) with <N> milliseconds interval)",
+      "tests": [
+        "com.northwind.qa.ui.PayeeUiTest.addPayeeShowsToast",
+        "com.northwind.qa.ui.PayeeUiTest.deletePayeeShowsToast"
+      ],
+      "verdict": {
+        "category": "FLAKY",
+        "confidence": 0.6,
+        "reason": "History 'PPPFPPPPFP' flips 4 times",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "history=PPPFPPPPFP"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-043e89b7",
+      "signature": "ElementClickInterceptedException | element click intercepted: Element <button id=\"freeze\"> is not clickable at point (<N>, <N>). Other element would receive the click: <div class=\"spinner-overlay\">",
+      "tests": [
+        "com.northwind.qa.ui.CardsUiTest.freezeCard",
+        "com.northwind.qa.ui.CardsUiTest.unfreezeCard"
+      ],
+      "verdict": {
+        "category": "FLAKY",
+        "confidence": 0.6,
+        "reason": "History 'PPPPFPPPFP' flips 4 times",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "history=PPPPFPPPFP"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-84e92368",
+      "signature": "AssertionFailedError | Fee for USD <N> international transfer ==> expected: <<N>> but was: <<N>> | com.northwind.qa.api.payments.FeesApiTest.internationalTransferFee",
+      "tests": [
+        "com.northwind.qa.api.payments.FeesApiTest.internationalTransferFee"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /assert/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "assert"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-5e3f5808",
+      "signature": "HTTP 422->201 | ",
+      "tests": [
+        "com.northwind.qa.api.payments.ComplianceApiTest.rejectsSanctionedCountry"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /expected .* but (was|found)/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "expected .* but (was|found)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-d918e2bb",
+      "signature": "AssertionFailedError | debits for Idempotency-Key <N>f<N>c... ==> expected: <<N>> but was: <<N>> | com.northwind.qa.api.payments.IdempotencyApiTest.retryDoesNotDoubleDebit",
+      "tests": [
+        "com.northwind.qa.api.payments.IdempotencyApiTest.retryDoesNotDoubleDebit"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /assert/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "assert"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-ac82265c",
+      "signature": "HTTP 201->409 | <N> {\"error\":\"DUPLICATE_CLIENT_ORDER_ID\",\"detail\":\"clientOrderId ORD-TEST-<N> already exists (created <TS> by OrderApiTe",
+      "tests": [
+        "com.northwind.qa.api.trading.OrderApiTest.placeLimitOrder"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /expected .* but (was|found)/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "expected .* but (was|found)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-d76a27f6",
+      "signature": "AssertionFailedError | AUDUSD mid rate ==> expected: <<N>> but was: <<N>> | com.northwind.qa.api.trading.FxRateApiTest.audUsdRateDirection",
+      "tests": [
+        "com.northwind.qa.api.trading.FxRateApiTest.audUsdRateDirection"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /assert/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "assert"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-31472bfb",
+      "signature": "AssertionFailedError | expected: <[CREATED, SETTLED]> but was: <[SETTLED, CREATED]> | com.northwind.qa.api.trading.TradeLifecycleTest.eventsInOrder",
+      "tests": [
+        "com.northwind.qa.api.trading.TradeLifecycleTest.eventsInOrder"
+      ],
+      "verdict": {
+        "category": "FLAKY",
+        "confidence": 0.6,
+        "reason": "History 'PFPPPPFPPP' flips 4 times",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "history=PFPPPPFPPP"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-2e0ba45b",
+      "signature": "AssertionFailedError | expected: <<N>> but was: <<N>> | com.northwind.payments.InterestAccrualComponentTest.monthlyAccrualRounding",
+      "tests": [
+        "com.northwind.payments.InterestAccrualComponentTest.monthlyAccrualRounding"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /assert/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "assert"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-2ed30d66",
+      "signature": "AssertionFailedError | Audit events for pay-<N>e<N>d ==> expected event PAYMENT_APPROVED but found [PAYMENT_CREATED, PAYMENT_SENT] | com.northwind.payments.AuditTrailComponentTest.approvalIsAudited",
+      "tests": [
+        "com.northwind.payments.AuditTrailComponentTest.approvalIsAudited"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /expected .* but (was|found)/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "expected .* but (was|found)"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-1840080b",
+      "signature": "AssertionError | assert 'A$<N>,<N>' == 'AUD <N>,<N>' | tests.statements.test_formatting.test_statement_balance_format",
+      "tests": [
+        "tests.statements.test_formatting.test_statement_balance_format"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /assert/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "assert"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-e90ab83b",
+      "signature": "AssertionError | assert 'A$<N>,<N>' == 'AUD <N>,<N>' | tests.statements.test_formatting.test_transaction_amount_format",
+      "tests": [
+        "tests.statements.test_formatting.test_transaction_amount_format"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /assert/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "assert"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-69b998de",
+      "signature": "AssertionError | assert <N> == <N> | tests.statements.test_exports.test_csv_contains_all_transactions",
+      "tests": [
+        "tests.statements.test_exports.test_csv_contains_all_transactions"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.55,
+        "reason": "Matched product pattern /assert/",
+        "suggested_owner": "dev",
+        "evidence": [
+          "assert"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-909a23a9",
+      "signature": "KeyError | 'settlementDate' | tests/statements/test_statement_fields.py:test_settlement_date_present",
+      "tests": [
+        "tests.statements.test_statement_fields.test_settlement_date_present"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.3,
+        "reason": "No rule matched; defaulting to product bug",
+        "suggested_owner": "dev",
+        "evidence": [],
+        "needs_human_review": true,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-453ff894",
+      "signature": "KeyError | 'settlementDate' | tests/statements/test_statement_fields.py:test_settlement_after_posting",
+      "tests": [
+        "tests.statements.test_statement_fields.test_settlement_after_posting"
+      ],
+      "verdict": {
+        "category": "PRODUCT_BUG",
+        "confidence": 0.3,
+        "reason": "No rule matched; defaulting to product bug",
+        "suggested_owner": "dev",
+        "evidence": [],
+        "needs_human_review": true,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    },
+    {
+      "cluster_id": "C-381e94ac",
+      "signature": "TimeoutException | Expected condition failed: waiting for visibility of element located by By.id: portfolio-chart (tried for <N> second(s) with <N> milliseconds interval)",
+      "tests": [
+        "com.northwind.qa.ui.PortfolioUiTest.rendersPerformanceChart"
+      ],
+      "verdict": {
+        "category": "FLAKY",
+        "confidence": 0.5,
+        "reason": "Matched timing pattern /timeoutexception/",
+        "suggested_owner": "qa:automation",
+        "evidence": [
+          "timeoutexception"
+        ],
+        "needs_human_review": false,
+        "jira_summary": "",
+        "jira_description": "",
+        "engine": "rules"
+      }
+    }
+  ]
+}
