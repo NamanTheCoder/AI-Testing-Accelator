@@ -1,4 +1,6 @@
 # failtriage — AI triage for failing regression runs
+GitHub Link- https://github.com/NamanTheCoder/AI-Testing-Accelator
+
 
 **Turns a red nightly run into a short, ranked list of root causes with draft Jira tickets.**
 Each one is classified as a product bug, a test bug, an environment issue, or a flaky test.
